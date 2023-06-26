@@ -1,7 +1,8 @@
 import { store } from "../../app/store";
 import { postsApiSlice } from "../posts/postsApiSlice";
 import { usersApiSlice } from "../users/usersApiSlice";
-import { mlhApiSlice } from "../mlh/mlhApiSlice"
+import { mlhApiSlice } from "../mlh/mlhApiSlice";
+import { devpostApiSlice } from "../devpost/devpostApiSlice";
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
@@ -16,6 +17,11 @@ const Prefetch = () => {
     );
     store.dispatch(
       mlhApiSlice.util.prefetch("getMlh", "mlhList", { force: true })
+    );
+    store.dispatch(
+      devpostApiSlice.util.prefetch("getDevpost", "devpostList", {
+        force: true,
+      })
     );
   }, []);
 
