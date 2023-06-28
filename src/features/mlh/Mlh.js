@@ -18,10 +18,14 @@ const Mlh = ({ mlhId }) => {
         <td className={`table__cell`}>{mlh.eventlocation}</td>
         <td className={`table__cell`}>{mlh.eventnote}</td>
         <td className={`table__cell`}>
-          <img src={mlh.imageurl} alt="event background" />
+          <img
+            src={mlh.imageurl}
+            alt="event background"
+            style={{ width: "200px" }}
+          />
         </td>
         <td className={`table__cell`}>
-          <img src={mlh.logo} alt="event logo" />
+          <img src={mlh.logo} alt="event logo" style={{ width: "200px" }} />
         </td>
       </tr>
     );

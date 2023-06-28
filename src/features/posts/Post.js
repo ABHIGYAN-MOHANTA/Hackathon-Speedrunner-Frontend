@@ -36,11 +36,21 @@ const Post = ({ postId }) => {
             <span className="post__status--open">Open</span>
           )}
         </td>
+        <td className="table__cell post__username">{post.date}</td>
         <td className="table__cell post__created">{created}</td>
         <td className="table__cell post__updated">{updated}</td>
         <td className="table__cell post__title">{post.title}</td>
-        <td className="table__cell post__username">{post.username}</td>
-
+        <td className="table__cell post__username">{post.user.username}</td>
+        <td className="table__cell post__username">{post.text}</td>
+        <td className="table__cell post__username">{post.location}</td>
+        <td className="table__cell post__username">{post.prize}</td>
+        <td className="table__cell post__username">
+          <img
+            src={post.imagesrc}
+            style={{ width: "200px" }}
+            alt="event logo"
+          />
+        </td>
         <td className="table__cell">
           <button className="icon-button table__button" onClick={handleEdit}>
             <FontAwesomeIcon icon={faPenToSquare} />

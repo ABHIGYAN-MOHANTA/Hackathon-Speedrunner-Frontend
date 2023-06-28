@@ -18,7 +18,11 @@ const Devpost = ({ devpostId }) => {
         <td className={`table__cell`}>{devpost.location}</td>
         <td className={`table__cell`}>{devpost.prize}</td>
         <td className={`table__cell`}>
-          <img src={devpost.imagesrc} alt="event background" />
+          <img
+            src={devpost.imagesrc}
+            alt="event background"
+            style={{ width: "200px" }}
+          />
         </td>
       </tr>
     );

@@ -17,7 +17,13 @@ const DevpostList = () => {
 
   let content;
 
-  if (isLoading) content = <PulseLoader color={"#FFF"} />;
+  if (isLoading)
+    content = (
+      <>
+        <PulseLoader color={"#FFF"} />
+        <h3>Devpost is a dynamically rendered site, please wait a bit!</h3>
+      </>
+    );
 
   if (isError) {
     content = <p className="errmsg">{error?.data?.message}</p>;
@@ -42,6 +48,9 @@ const DevpostList = () => {
             </th>
             <th scope="col" className="table__th user__edit">
               Location
+            </th>
+            <th scope="col" className="table__th user__username">
+              Prize
             </th>
             <th scope="col" className="table__th user__username">
               Image

@@ -35,21 +35,36 @@ const PostsList = () => {
         <thead className="table__thead">
           <tr>
             <th scope="col" className="table__th post__status">
-              Username
+              Status
             </th>
             <th scope="col" className="table__th post__created">
-              Created
+              Date
             </th>
             <th scope="col" className="table__th post__updated">
-              Updated
+              Created At
+            </th>
+            <th scope="col" className="table__th post__updated">
+              Updated At
             </th>
             <th scope="col" className="table__th post__title">
               Title
             </th>
             <th scope="col" className="table__th post__username">
-              Owner
+              User
             </th>
             <th scope="col" className="table__th post__edit">
+              Description
+            </th>
+            <th scope="col" className="table__th post__username">
+              Location
+            </th>
+            <th scope="col" className="table__th post__username">
+              Prize
+            </th>
+            <th scope="col" className="table__th post__username">
+              Image
+            </th>
+            <th scope="col" className="table__th post__username">
               Edit
             </th>
           </tr>

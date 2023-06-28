@@ -32,11 +32,12 @@ export const postsApiSlice = apiSlice.injectEndpoints({
       },
     }),
     addNewPost: builder.mutation({
-      query: (initialPost) => ({
+      query: (formData) => ({
         url: "/posts",
         method: "POST",
-        body: {
-          ...initialPost,
+        body: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
       }),
       invalidatesTags: [{ type: "Post", id: "LIST" }],
