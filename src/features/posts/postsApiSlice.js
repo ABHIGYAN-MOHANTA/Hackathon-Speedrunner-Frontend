@@ -37,7 +37,7 @@ export const postsApiSlice = apiSlice.injectEndpoints({
         method: "POST",
         body: formData,
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": undefined,
         },
       }),
       invalidatesTags: [{ type: "Post", id: "LIST" }],
