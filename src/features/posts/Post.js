@@ -25,7 +25,7 @@ const Post = ({ postId }) => {
       month: "long",
     });
 
-    const handleEdit = () => navigate(`/dash/posts/${postId}`);
+    const handleEdit = () => navigate(`/dash/userposts/${postId}`);
 
     return (
       <tr className="table__row">

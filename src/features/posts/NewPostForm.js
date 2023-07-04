@@ -77,7 +77,7 @@ const NewPostForm = ({ users }) => {
       await addNewPost(formData);
     }
   };
-
+  
   const errClass = isError ? "errmsg" : "offscreen";
   const validTitleClass = !title ? "form__input--incomplete" : "";
   const validTextClass = !text ? "form__input--incomplete" : "";

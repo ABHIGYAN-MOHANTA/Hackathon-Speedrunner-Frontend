@@ -20,28 +20,44 @@ const EditPostForm = ({ post, users }) => {
 
   const [title, setTitle] = useState(post.title);
   const [text, setText] = useState(post.text);
+  const [date, setDate] = useState(post.date);
+  const [location, setLocation] = useState(post.location);
+  const [prize, setPrize] = useState(post.prize);
   const [completed, setCompleted] = useState(post.completed);
-  const [userId, setUserId] = useState(post.user);
 
   useEffect(() => {
     if (isSuccess || isDelSuccess) {
       setTitle("");
       setText("");
-      setUserId("");
-      navigate("/dash/posts");
+      setDate("");
+      setLocation("");
+      setPrize("");
+      navigate("/dash/userposts");
     }
   }, [isSuccess, isDelSuccess, navigate]);
 
   const onTitleChanged = (e) => setTitle(e.target.value);
   const onTextChanged = (e) => setText(e.target.value);
   const onCompletedChanged = (e) => setCompleted((prev) => !prev);
-  const onUserIdChanged = (e) => setUserId(e.target.value);
+  const onDateChanged = (e) => setDate(e.target.value);
+  const onLocationChanged = (e) => setLocation(e.target.value);
+  const onPrizeChanged = (e) => setPrize(e.target.value);
 
-  const canSave = [title, text, userId].every(Boolean) && !isLoading;
+  const canSave =
+    [title, text, date, location, prize].every(Boolean) && !isLoading;
 
   const onSavePostClicked = async (e) => {
     if (canSave) {
-      await updatePost({ id: post.id, user: userId, title, text, completed });
+      await updatePost({
+        id: post.id,
+        user: post.user._id,
+        title: title,
+        text: text,
+        date: date,
+        location: location,
+        prize: prize,
+        completed: completed,
+      });
     }
   };
 
@@ -66,18 +82,13 @@ const EditPostForm = ({ post, users }) => {
     second: "numeric",
   });
 
-  const options = users.map((user) => {
-    return (
-      <option key={user.id} value={user.id}>
-        {" "}
-        {user.username}
-      </option>
-    );
-  });
-
   const errClass = isError || isDelError ? "errmsg" : "offscreen";
   const validTitleClass = !title ? "form__input--incomplete" : "";
   const validTextClass = !text ? "form__input--incomplete" : "";
+  const validDateClass = !date ? "form__input--incomplete" : "";
+  const validLocationClass = !location ? "form__input--incomplete" : "";
+  const validPrizeClass = !prize ? "form__input--incomplete" : "";
+  const validCompletedClass = !completed ? "form__input--incomplete" : "";
 
   const errContent = (error?.data?.message || delerror?.data?.message) ?? "";
 
@@ -114,18 +125,18 @@ const EditPostForm = ({ post, users }) => {
 
       <form className="form" onSubmit={(e) => e.preventDefault()}>
         <div className="form__title-row">
-          <h2>Edit Post #{post.ticket}</h2>
+          <h2>Edit Post {title}</h2>
           <div className="form__action-buttons">
             {saveButton}
             {deleteButton}
           </div>
         </div>
-        <label className="form__label" htmlFor="post-title">
+        <label className="form__label" htmlFor="title">
           Title:
         </label>
         <input
           className={`form__input ${validTitleClass}`}
-          id="post-title"
+          id="title"
           name="title"
           type="text"
           autoComplete="off"
@@ -133,48 +144,68 @@ const EditPostForm = ({ post, users }) => {
           onChange={onTitleChanged}
         />
 
-        <label className="form__label" htmlFor="post-text">
-          Text:
+        <label className="form__label" htmlFor="text">
+          Description :
         </label>
         <textarea
           className={`form__input form__input--text ${validTextClass}`}
-          id="post-text"
+          id="text"
           name="text"
           value={text}
           onChange={onTextChanged}
+        />
+        <label className="form__label" htmlFor="date">
+          Date:
+        </label>
+        <input
+          className={`form__input ${validDateClass}`}
+          id="date"
+          name="date"
+          type="text"
+          autoComplete="off"
+          value={date}
+          onChange={onDateChanged}
+        />
+        <label className="form__label" htmlFor="location">
+          Location:
+        </label>
+        <input
+          className={`form__input ${validLocationClass}`}
+          id="location"
+          name="location"
+          type="text"
+          autoComplete="off"
+          value={location}
+          onChange={onLocationChanged}
+        />
+        <label className="form__label" htmlFor="prize">
+          Prize:
+        </label>
+        <input
+          className={`form__input ${validPrizeClass}`}
+          id="prize"
+          name="prize"
+          type="text"
+          autoComplete="off"
+          value={prize}
+          onChange={onPrizeChanged}
         />
         <div className="form__row">
           <div className="form__divider">
             <label
               className="form__label form__checkbox-container"
-              htmlFor="post-completed"
+              htmlFor="completed"
             >
               WORK COMPLETE:
               <input
-                className="form__checkbox"
-                id="post-completed"
+                className={`form__checkbox ${validCompletedClass}`}
+                id="completed"
                 name="completed"
                 type="checkbox"
                 checked={completed}
                 onChange={onCompletedChanged}
               />
             </label>
-
-            <label
-              className="form__label form__checkbox-container"
-              htmlFor="post-username"
-            >
-              ASSIGNED TO:
-            </label>
-            <select
-              id="post-username"
-              name="username"
-              className="form__select"
-              value={userId}
-              onChange={onUserIdChanged}
-            >
-              {options}
-            </select>
           </div>
           <div className="form__divider">
             <p className="form__created">
