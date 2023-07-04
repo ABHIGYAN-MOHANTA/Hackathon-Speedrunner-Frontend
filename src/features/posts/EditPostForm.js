@@ -61,7 +61,7 @@ const EditPostForm = ({ post, users }) => {
     }
   };
 
-  const onDeletePostClicked = async () => {
+  const onDeletePostClicked = async (e) => {
     await deletePost({ id: post.id });
   };
 

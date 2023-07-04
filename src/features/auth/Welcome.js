@@ -40,11 +40,13 @@ const Welcome = () => {
         </p>
       )}
 
-      <p>
-        <Link to="/dash/users/new">
-          <button>Add Yourself as User</button>
-        </Link>
-      </p>
+      {(isHacker || isAdmin) && (
+        <p>
+          <Link to="/dash/users/new">
+            <button>Add Another as User</button>
+          </Link>
+        </p>
+      )}
 
       <p>
         <Link to="/dash/userposts/new">
