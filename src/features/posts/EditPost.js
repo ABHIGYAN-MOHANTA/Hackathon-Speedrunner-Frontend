@@ -27,10 +27,8 @@ const EditPost = () => {
 
   if (!post || !users?.length) return <PulseLoader color={"#FFF"} />;
 
-  if (!isHacker && !isAdmin) {
-    if (post.username !== username) {
-      return <p className="errmsg">No access</p>;
-    }
+  if (!isHacker && !isAdmin && post.user.username !== username) {
+    return <p className="errmsg">No access</p>;
   }
 
   const content = <EditPostForm post={post} users={users} />;

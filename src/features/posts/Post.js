@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faComments } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 import { useGetPostsQuery } from "./postsApiSlice";
@@ -26,6 +26,7 @@ const Post = ({ postId }) => {
     });
 
     const handleEdit = () => navigate(`/dash/userposts/${postId}`);
+    const handleComments = () => navigate(`/dash/comments/${postId}`);
 
     return (
       <tr className="table__row">
@@ -54,6 +55,14 @@ const Post = ({ postId }) => {
         <td className="table__cell">
           <button className="icon-button table__button" onClick={handleEdit}>
             <FontAwesomeIcon icon={faPenToSquare} />
+          </button>
+        </td>
+        <td className="table__cell">
+          <button
+            className="icon-button table__button"
+            onClick={handleComments}
+          >
+            <FontAwesomeIcon icon={faComments} />
           </button>
         </td>
       </tr>

@@ -65,7 +65,10 @@ const PostsList = () => {
               Image
             </th>
             <th scope="col" className="table__th post__username">
-              Edit
+              Edit Post
+            </th>
+            <th scope="col" className="table__th post__username">
+              Team Building
             </th>
           </tr>
         </thead>
