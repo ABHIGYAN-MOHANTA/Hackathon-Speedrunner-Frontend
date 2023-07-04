@@ -16,6 +16,11 @@ const Public = () => {
           <button>User Login</button>
         </Link>
       </footer>
+      <footer>
+        <Link to="/signup">
+          <button>User Signup</button>
+        </Link>
+      </footer>
     </section>
   );
   return content;

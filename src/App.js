@@ -11,6 +11,7 @@ import DevpostList from "./features/devpost/DevpostList";
 import EditPost from "./features/posts/EditPost";
 import EditUser from "./features/users/EditUser";
 import NewUserForm from "./features/users/NewUserForm";
+import NewUserSignupForm from "./features/users/NewUserSignupForm";
 import NewPost from "./features/posts/NewPost";
 import Prefetch from "./features/auth/Prefetch";
 import PersistLogin from "./features/auth/PersistLogin";
@@ -26,6 +27,7 @@ function App() {
         {/* Public Routes */}
         <Route index element={<Public />} />
         <Route path="login" element={<Login />} />
+        <Route path="signup" element={<NewUserSignupForm />} />
         {/* Protected Routes */}
         <Route element={<PersistLogin />}>
           <Route
