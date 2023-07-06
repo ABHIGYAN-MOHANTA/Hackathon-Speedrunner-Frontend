@@ -57,6 +57,9 @@ const CommentList = () => {
               <th scope="col" className="table__th comment__username">
                 User
               </th>
+              <th scope="col" className="table__th comment__username">
+                Delete
+              </th>
             </tr>
           </thead>
           <tbody>{tableContent}</tbody>
