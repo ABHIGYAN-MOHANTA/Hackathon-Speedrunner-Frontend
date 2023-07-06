@@ -18,6 +18,7 @@ import PersistLogin from "./features/auth/PersistLogin";
 import { ROLES } from "./config/roles";
 import RequireAuth from "./features/auth/RequireAuth";
 import useTitle from "./hooks/useTitle";
+import CommentList from "./features/comments/CommentList";
 
 function App() {
   useTitle("Hackathon Speedrunner");
@@ -52,6 +53,9 @@ function App() {
                   <Route index element={<PostsList />} />
                   <Route path=":id" element={<EditPost />} />
                   <Route path="new" element={<NewPost />} />
+                </Route>
+                <Route path="comments">
+                  <Route path=":id" element={<CommentList />} />
                 </Route>
                 <Route path="mlh">
                   <Route index element={<MlhList />} />
