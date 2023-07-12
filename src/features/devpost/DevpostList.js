@@ -20,7 +20,7 @@ const DevpostList = () => {
   if (isLoading)
     content = (
       <>
-        <PulseLoader color={"#FFF"} />
+        <PulseLoader color={"#1f2937"} />
         <h3>Devpost is a dynamically rendered site, please wait a bit!</h3>
       </>
     );

@@ -9,7 +9,7 @@ const NewComment = () => {
     }),
   });
 
-  if (!users?.length) return <PulseLoader color={"#FFF"} />;
+  if (!users?.length) return <PulseLoader color={"#1f2937"} />;
 
   const content = <NewCommentForm users={users} />;
 

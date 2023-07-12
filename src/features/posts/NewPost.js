@@ -13,7 +13,7 @@ const NewPost = () => {
     }),
   });
 
-  if (!users?.length) return <PulseLoader color={"#FFF"} />;
+  if (!users?.length) return <PulseLoader color={"#1f2937"} />;
 
   const content = <NewPostForm users={users} />;
 

@@ -55,7 +55,7 @@ const Login = () => {
 
   const errClass = errMsg ? "errmsg" : "offscreen";
 
-  if (isLoading) return <PulseLoader color={"#FFF"} />;
+  if (isLoading) return <PulseLoader color={"#1f2937"} />;
 
   const content = (
     <section className="public min-h-screen flex flex-col items-center justify-center">

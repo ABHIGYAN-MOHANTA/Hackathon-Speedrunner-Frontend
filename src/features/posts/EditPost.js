@@ -25,7 +25,7 @@ const EditPost = () => {
     }),
   });
 
-  if (!post || !users?.length) return <PulseLoader color={"#FFF"} />;
+  if (!post || !users?.length) return <PulseLoader color={"#1f2937"} />;
 
   if (!isHacker && !isAdmin && post.user.username !== username) {
     return <p className="errmsg">No access</p>;
