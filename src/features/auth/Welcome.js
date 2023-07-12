@@ -11,51 +11,56 @@ const Welcome = () => {
   }).format(date);
 
   const content = (
-    <section className="welcome">
-      <p>{today}</p>
+    <section className="welcome min-h-screen flex flex-col items-center justify-center">
+      <p className="text-gray-600">{today}</p>
 
-      <h1>Welcome {username}!</h1>
+      <h1 className="text-3xl font-bold mt-4">Welcome {username}!</h1>
 
-      <p>
+      <div className="mt-8 space-y-4">
         <Link to="/dash/mlh">
-          <button>View MLH HACKATHONS</button>
+          <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            View MLH HACKATHONS
+          </button>
         </Link>
-      </p>
-      <p>
+
         <Link to="/dash/devpost">
-          <button>View DEVPOST HACKATHONS</button>
+          <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            View DEVPOST HACKATHONS
+          </button>
         </Link>
-      </p>
-      <p>
+
         <Link to="/dash/userposts">
-          <button>View USER POSTS</button>
+          <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            View USER POSTS
+          </button>
         </Link>
-      </p>
 
-      {(isHacker || isAdmin) && (
-        <p>
+        {(isHacker || isAdmin) && (
           <Link to="/dash/users">
-            <button>View User Settings</button>
+            <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+              View User Settings
+            </button>
           </Link>
-        </p>
-      )}
+        )}
 
-      {(isHacker || isAdmin) && (
-        <p>
+        {(isHacker || isAdmin) && (
           <Link to="/dash/users/new">
-            <button>Add Another as User</button>
+            <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+              Add Another as User
+            </button>
           </Link>
-        </p>
-      )}
+        )}
 
-      <p>
         <Link to="/dash/userposts/new">
-          <button>Add New Post</button>
+          <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            Add New Post
+          </button>
         </Link>
-      </p>
+      </div>
     </section>
   );
 
   return content;
 };
+
 export default Welcome;

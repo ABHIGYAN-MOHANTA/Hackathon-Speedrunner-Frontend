@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAddNewUserMutation } from "./usersApiSlice";
-import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSave } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate, Link } from "react-router-dom";
 
 const USER_REGEX = /^[A-z]{3,20}$/;
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
@@ -51,46 +49,64 @@ const NewUserSignupForm = () => {
   const validPwdClass = !validPassword ? "form__input--incomplete" : "";
 
   const content = (
-    <>
-      <p className={errClass}>{error?.data?.message}</p>
+    <section className="public min-h-screen flex flex-col items-center justify-center">
+      <header>
+        <h1 className="text-3xl font-bold">User Signup</h1>
+      </header>
+      <main className="login mt-8">
+        <p className={`${errClass} text-red-600`}>{error?.data?.message}</p>
 
-      <form className="form" onSubmit={onSaveUserClicked}>
-        <div className="form__title-row">
-          <h2>New User</h2>
-          <div className="form__action-buttons">
-            <button className="icon-button" title="Save" disabled={!canSave}>
-              <FontAwesomeIcon icon={faSave} />
-            </button>
+        <form className="form mt-4" onSubmit={onSaveUserClicked}>
+          <div className="form__title-row">
+            <div className="form__action-buttons"></div>
           </div>
-        </div>
-        <label className="form__label" htmlFor="username">
-          Username: <span className="nowrap">[3-20 letters]</span>
-        </label>
-        <input
-          className={`form__input ${validUserClass}`}
-          id="username"
-          name="username"
-          type="text"
-          autoComplete="off"
-          value={username}
-          onChange={onUsernameChanged}
-        />
+          <label className="form__label" htmlFor="username">
+            Username: <span className="nowrap">[3-20 letters]</span>
+          </label>
+          <input
+            className={`form__input ${validUserClass} border focus:border-blue-500 px-4 py-2 rounded`}
+            id="username"
+            name="username"
+            type="text"
+            autoComplete="off"
+            value={username}
+            onChange={onUsernameChanged}
+          />
 
-        <label className="form__label" htmlFor="password">
-          Password: <span className="nowrap">[4-12 chars incl. !@#$%]</span>
-        </label>
-        <input
-          className={`form__input ${validPwdClass}`}
-          id="password"
-          name="password"
-          type="password"
-          value={password}
-          onChange={onPasswordChanged}
-        />
-      </form>
-    </>
+          <label className="form__label" htmlFor="password">
+            Password: <span className="nowrap">[4-12 chars incl. !@#$%]</span>
+          </label>
+          <input
+            className={`form__input ${validPwdClass} border focus:border-blue-500 px-4 py-2 rounded`}
+            id="password"
+            name="password"
+            type="password"
+            value={password}
+            onChange={onPasswordChanged}
+          />
+
+          <button
+            className={`icon-button ${
+              canSave
+                ? "text-white form__submit-button bg-blue-600 px-6 py-2 rounded mt-4"
+                : "text-gray-400 form__submit-button bg-blue-600 px-6 py-2 rounded mt-4 cursor-not-allowed "
+            }`}
+            title="Save"
+            disabled={!canSave}
+          >
+            SignUp
+          </button>
+        </form>
+      </main>
+      <footer className="mt-8">
+        <Link to="/" className="text-blue-600 hover:underline">
+          Back to Home
+        </Link>
+      </footer>
+    </section>
   );
 
   return content;
 };
+
 export default NewUserSignupForm;

@@ -35,7 +35,6 @@ const EditUserForm = ({ user }) => {
   }, [password]);
 
   useEffect(() => {
-    console.log(isSuccess);
     if (isSuccess || isDelSuccess) {
       setUsername("");
       setPassword("");
@@ -97,89 +96,100 @@ const EditUserForm = ({ user }) => {
   const errContent = (error?.data?.message || delerror?.data?.message) ?? "";
 
   const content = (
-    <>
-      <p className={errClass}>{errContent}</p>
+    <div className="flex flex-col items-center justify-center h-full">
+      <p className={`${errClass} text-red-500 mb-4`}>{errContent}</p>
 
-      <form className="form" onSubmit={(e) => e.preventDefault()}>
-        <div className="form__title-row">
-          <h2>Edit User</h2>
-          <div className="form__action-buttons">
-            <button
-              className="icon-button"
-              title="Save"
-              onClick={onSaveUserClicked}
-              disabled={!canSave}
-            >
-              <FontAwesomeIcon icon={faSave} />
-            </button>
-            <button
-              className="icon-button"
-              title="Delete"
-              onClick={onDeleteUserClicked}
-            >
-              <FontAwesomeIcon icon={faTrashCan} />
-            </button>
-          </div>
+      <form className="max-w-sm mx-auto mt-8 bg-grey p-6 rounded shadow">
+        <div className="form__title-row flex items-center mb-4">
+          <h2 className="text-2xl font-bold">Edit User</h2>
         </div>
-        <label className="form__label" htmlFor="username">
-          Username: <span className="nowrap">[3-20 letters]</span>
-        </label>
-        <input
-          className={`form__input ${validUserClass}`}
-          id="username"
-          name="username"
-          type="text"
-          autoComplete="off"
-          value={username}
-          onChange={onUsernameChanged}
-        />
 
-        <label className="form__label" htmlFor="password">
-          Password: <span className="nowrap">[empty = no change]</span>{" "}
-          <span className="nowrap">[4-12 chars incl. !@#$%]</span>
-        </label>
-        <input
-          className={`form__input ${validPwdClass}`}
-          id="password"
-          name="password"
-          type="password"
-          value={password}
-          onChange={onPasswordChanged}
-        />
-
-        <label
-          className="form__label form__checkbox-container"
-          htmlFor="user-active"
-        >
-          ACTIVE:
+        <div className="mb-4">
+          <label className="form__label" htmlFor="username">
+            Username: <span className="nowrap">[3-20 letters]</span>
+          </label>
           <input
-            className="form__checkbox"
-            id="user-active"
-            name="user-active"
-            type="checkbox"
-            checked={active}
-            onChange={onActiveChanged}
+            className={`form__input ${validUserClass}`}
+            id="username"
+            name="username"
+            type="text"
+            autoComplete="off"
+            value={username}
+            onChange={onUsernameChanged}
           />
-        </label>
+        </div>
 
-        <label className="form__label" htmlFor="roles">
-          ASSIGNED ROLES:
-        </label>
-        <select
-          id="roles"
-          name="roles"
-          className={`form__select ${validRolesClass}`}
-          multiple={true}
-          size="3"
-          value={roles}
-          onChange={onRolesChanged}
-        >
-          {options}
-        </select>
+        <div className="mb-4">
+          <label className="form__label" htmlFor="password">
+            Password: <span className="nowrap">[empty = no change]</span>{" "}
+            <span className="nowrap">[4-12 chars incl. !@#$%]</span>
+          </label>
+          <input
+            className={`form__input ${validPwdClass}`}
+            id="password"
+            name="password"
+            type="password"
+            value={password}
+            onChange={onPasswordChanged}
+          />
+        </div>
+
+        <div className="mb-4">
+          <label
+            className="form__label form__checkbox-container"
+            htmlFor="user-active"
+          >
+            ACTIVE:
+            <input
+              className="form__checkbox"
+              id="user-active"
+              name="user-active"
+              type="checkbox"
+              checked={active}
+              onChange={onActiveChanged}
+            />
+          </label>
+        </div>
+
+        <div className="mb-4">
+          <label className="form__label" htmlFor="roles">
+            ASSIGNED ROLES:
+          </label>
+          <select
+            id="roles"
+            name="roles"
+            className={`form__select ${validRolesClass}`}
+            multiple={true}
+            size="3"
+            value={roles}
+            onChange={onRolesChanged}
+          >
+            {options}
+          </select>
+        </div>
+
+        <div className="form__action-buttons flex space-x-2">
+          <button
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded disabled:opacity-50"
+            title="Save"
+            onClick={onSaveUserClicked}
+            disabled={!canSave}
+          >
+            Save: <FontAwesomeIcon icon={faSave} />
+          </button>
+          <button
+            className="bg-red-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded disabled:opacity-50"
+            title="Delete"
+            onClick={onDeleteUserClicked}
+          >
+            Delete: <FontAwesomeIcon icon={faTrashCan} />
+          </button>
+        </div>
       </form>
-    </>
+    </div>
   );
 
   return content;
 };
+
 export default EditUserForm;

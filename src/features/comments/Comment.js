@@ -35,21 +35,23 @@ const Comment = ({ commentId }) => {
     };
 
     return (
-      <tr className="table__row">
-        <td className="table__cell comment__created">{created}</td>
-        <td className="table__cell comment__text">{comment.text}</td>
-        <td className="table__cell comment__username">
-          {comment.user.username}
-        </td>
-        <td className="table__cell comment__delete">
-          <button
-            className="icon-button table__button"
-            onClick={handleDeleteComments}
-          >
-            <FontAwesomeIcon icon={faDumpster} />
-          </button>
-        </td>
-      </tr>
+      <div className="max-w-md bg-white shadow-md rounded-lg overflow-hidden mb-4">
+        <div className="p-4">
+          <div className="relative">
+            <h2 className="text-2xl font-bold mb-2 ml-12">{comment.text}</h2>
+
+            <p className="text-gray-600">By:{comment.user.username}</p>
+            <p className="text-gray-600">{created}</p>
+
+            <button
+              className="icon-button table__button"
+              onClick={handleDeleteComments}
+            >
+              <FontAwesomeIcon icon={faDumpster} />
+            </button>
+          </div>
+        </div>
+      </div>
     );
   } else return null;
 };

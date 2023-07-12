@@ -31,49 +31,9 @@ const PostsList = () => {
       : null;
 
     content = (
-      <table className="table table--posts">
-        <thead className="table__thead">
-          <tr>
-            <th scope="col" className="table__th post__status">
-              Status
-            </th>
-            <th scope="col" className="table__th post__created">
-              Date
-            </th>
-            <th scope="col" className="table__th post__updated">
-              Created At
-            </th>
-            <th scope="col" className="table__th post__updated">
-              Updated At
-            </th>
-            <th scope="col" className="table__th post__title">
-              Title
-            </th>
-            <th scope="col" className="table__th post__username">
-              User
-            </th>
-            <th scope="col" className="table__th post__edit">
-              Description
-            </th>
-            <th scope="col" className="table__th post__username">
-              Location
-            </th>
-            <th scope="col" className="table__th post__username">
-              Prize
-            </th>
-            <th scope="col" className="table__th post__username">
-              Image
-            </th>
-            <th scope="col" className="table__th post__username">
-              Edit Post
-            </th>
-            <th scope="col" className="table__th post__username">
-              Team Building
-            </th>
-          </tr>
-        </thead>
-        <tbody>{tableContent}</tbody>
-      </table>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {tableContent}
+      </div>
     );
   }
 

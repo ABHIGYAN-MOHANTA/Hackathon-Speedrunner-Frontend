@@ -353,12 +353,16 @@ template {
 /*================================================================================================*/
 
 body {
-  background-color: #00362d;
   background-image: url("./img/xv.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-  color: beige;
 }
-.dash-header__title {
-  text-decoration: none;
-  color: beige;
-}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .flex {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+} */

@@ -96,11 +96,12 @@ const EditPostForm = ({ post, users }) => {
   if (isHacker || isAdmin) {
     deleteButton = (
       <button
-        className="icon-button"
+        className="bg-red-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded disabled:opacity-50"
         title="Delete"
         onClick={onDeletePostClicked}
       >
         <FontAwesomeIcon icon={faTrashCan} />
+        Delete
       </button>
     );
   }
@@ -109,94 +110,106 @@ const EditPostForm = ({ post, users }) => {
   if (isHacker || isAdmin) {
     saveButton = (
       <button
-        className="icon-button"
+        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded disabled:opacity-50"
         title="Save"
         onClick={onSavePostClicked}
         disabled={!canSave}
       >
         <FontAwesomeIcon icon={faSave} />
+        Save
       </button>
     );
   }
 
   const content = (
-    <>
-      <p className={errClass}>{errContent}</p>
+    <div className="flex flex-col items-center justify-center h-full">
+      <p className={`${errClass} text-red-500 mb-4`}>{errContent}</p>
 
-      <form className="form" onSubmit={(e) => e.preventDefault()}>
-        <div className="form__title-row">
-          <h2>Edit Post {title}</h2>
-          <div className="form__action-buttons">
-            {saveButton}
-            {deleteButton}
-          </div>
+      <form className="max-w-sm mx-auto mt-8 bg-grey p-6 rounded shadow">
+        <div className="form__title-row flex items-center mb-4">
+          <h2 className="text-2xl font-bold">Edit Post {title}</h2>
         </div>
-        <label className="form__label" htmlFor="title">
-          Title:
-        </label>
-        <input
-          className={`form__input ${validTitleClass}`}
-          id="title"
-          name="title"
-          type="text"
-          autoComplete="off"
-          value={title}
-          onChange={onTitleChanged}
-        />
 
-        <label className="form__label" htmlFor="text">
-          Description :
-        </label>
-        <textarea
-          className={`form__input form__input--text ${validTextClass}`}
-          id="text"
-          name="text"
-          value={text}
-          onChange={onTextChanged}
-        />
-        <label className="form__label" htmlFor="date">
-          Date:
-        </label>
-        <input
-          className={`form__input ${validDateClass}`}
-          id="date"
-          name="date"
-          type="text"
-          autoComplete="off"
-          value={date}
-          onChange={onDateChanged}
-        />
-        <label className="form__label" htmlFor="location">
-          Location:
-        </label>
-        <input
-          className={`form__input ${validLocationClass}`}
-          id="location"
-          name="location"
-          type="text"
-          autoComplete="off"
-          value={location}
-          onChange={onLocationChanged}
-        />
-        <label className="form__label" htmlFor="prize">
-          Prize:
-        </label>
-        <input
-          className={`form__input ${validPrizeClass}`}
-          id="prize"
-          name="prize"
-          type="text"
-          autoComplete="off"
-          value={prize}
-          onChange={onPrizeChanged}
-        />
-        <div className="form__row">
+        <div className="mb-4">
+          <label className="form__label" htmlFor="title">
+            Title:
+          </label>
+          <input
+            className={`form__input ${validTitleClass}`}
+            id="title"
+            name="title"
+            type="text"
+            autoComplete="off"
+            value={title}
+            onChange={onTitleChanged}
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="form__label" htmlFor="text">
+            Description:
+          </label>
+          <textarea
+            className={`form__input form__input--text ${validTextClass}`}
+            id="text"
+            name="text"
+            value={text}
+            onChange={onTextChanged}
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="form__label" htmlFor="date">
+            Date:
+          </label>
+          <input
+            className={`form__input ${validDateClass}`}
+            id="date"
+            name="date"
+            type="text"
+            autoComplete="off"
+            value={date}
+            onChange={onDateChanged}
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="form__label" htmlFor="location">
+            Location:
+          </label>
+          <input
+            className={`form__input ${validLocationClass}`}
+            id="location"
+            name="location"
+            type="text"
+            autoComplete="off"
+            value={location}
+            onChange={onLocationChanged}
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="form__label" htmlFor="prize">
+            Prize:
+          </label>
+          <input
+            className={`form__input ${validPrizeClass}`}
+            id="prize"
+            name="prize"
+            type="text"
+            autoComplete="off"
+            value={prize}
+            onChange={onPrizeChanged}
+          />
+        </div>
+
+        <div className="form__row flex items-center mb-4">
           <div className="form__divider">
             <label
               className="form__label form__checkbox-container"
               htmlFor="completed"
             >
-              WORK COMPLETE:
+              COMPLETE:
               <input
                 className={`form__checkbox ${validCompletedClass}`}
                 id="completed"
@@ -208,20 +221,17 @@ const EditPostForm = ({ post, users }) => {
             </label>
           </div>
           <div className="form__divider">
-            <p className="form__created">
-              Created:
-              <br />
-              {created}
-            </p>
-            <p className="form__updated">
-              Updated:
-              <br />
-              {updated}
-            </p>
+            <p className="form__created text-gray-600">Created: {created}</p>
+            <p className="form__updated text-gray-600">Updated: {updated}</p>
           </div>
         </div>
+
+        <div className="form__action-buttons">
+          {saveButton}
+          {deleteButton}
+        </div>
       </form>
-    </>
+    </div>
   );
 
   return content;

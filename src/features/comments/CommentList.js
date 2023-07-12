@@ -45,25 +45,9 @@ const CommentList = () => {
     content = (
       <>
         <NewComment />
-        <table className="table table--comments">
-          <thead className="table__thead">
-            <tr>
-              <th scope="col" className="table__th comment__updated">
-                Created At
-              </th>
-              <th scope="col" className="table__th comment__edit">
-                Comment
-              </th>
-              <th scope="col" className="table__th comment__username">
-                User
-              </th>
-              <th scope="col" className="table__th comment__username">
-                Delete
-              </th>
-            </tr>
-          </thead>
-          <tbody>{tableContent}</tbody>
-        </table>
+        <div className="flex flex-col items-center justify-center py-8 space-y-4">
+          {tableContent}
+        </div>
       </>
     );
   }

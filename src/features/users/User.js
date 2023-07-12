@@ -24,15 +24,17 @@ const User = ({ userId }) => {
     const cellStatus = user.active ? "" : "table__cell--inactive";
 
     return (
-      <tr className="table__row user">
-        <td className={`table__cell ${cellStatus}`}>{user.username}</td>
-        <td className={`table__cell ${cellStatus}`}>{userRolesString}</td>
-        <td className={`table__cell ${cellStatus}`}>
-          <button className="icon-button table__button" onClick={handleEdit}>
-            <FontAwesomeIcon icon={faPenToSquare} />
-          </button>
-        </td>
-      </tr>
+      <div className="max-w-md bg-white shadow-md rounded-lg overflow-hidden mb-4">
+        <div className="p-4">
+          <div className="relative">
+            <h2 className="text-2xl font-bold mb-2 ml-12">{user.username}</h2>
+            <p className="text-gray-600">ROLE: {userRolesString}</p>
+            <button className="icon-button table__button" onClick={handleEdit}>
+              <FontAwesomeIcon icon={faPenToSquare} />
+            </button>
+          </div>
+        </div>
+      </div>
     );
   } else return null;
 };

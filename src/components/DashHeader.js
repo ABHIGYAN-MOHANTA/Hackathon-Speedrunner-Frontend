@@ -51,7 +51,11 @@ const DashHeader = () => {
         title="New Post"
         onClick={onNewPostClicked}
       >
-        <FontAwesomeIcon icon={faFileCirclePlus} />
+        <FontAwesomeIcon
+          icon={faFileCirclePlus}
+          className="text-white text-2xl mr-2"
+          style={{ color: "white" }}
+        />
       </button>
     );
   }
@@ -64,7 +68,11 @@ const DashHeader = () => {
         title="New User"
         onClick={onNewUserClicked}
       >
-        <FontAwesomeIcon icon={faUserPlus} />
+        <FontAwesomeIcon
+          icon={faUserPlus}
+          className="text-white text-2xl mr-2"
+          style={{ color: "white" }}
+        />
       </button>
     );
   }
@@ -74,7 +82,11 @@ const DashHeader = () => {
     if (!USERS_REGEX.test(pathname) && pathname.includes("/dash")) {
       userButton = (
         <button className="icon-button" title="Users" onClick={onUsersClicked}>
-          <FontAwesomeIcon icon={faUserGear} />
+          <FontAwesomeIcon
+            icon={faUserGear}
+            className="text-white text-2xl mr-2"
+            style={{ color: "white" }}
+          />
         </button>
       );
     }
@@ -84,14 +96,22 @@ const DashHeader = () => {
   if (!POSTS_REGEX.test(pathname) && pathname.includes("/dash")) {
     postsButton = (
       <button className="icon-button" title="Posts" onClick={onPostsClicked}>
-        <FontAwesomeIcon icon={faFilePen} />
+        <FontAwesomeIcon
+          icon={faFilePen}
+          className="text-white text-2xl mr-2"
+          style={{ color: "white" }}
+        />
       </button>
     );
   }
 
   const logoutButton = (
     <button className="icon-button" title="Logout" onClick={sendLogout}>
-      <FontAwesomeIcon icon={faRightFromBracket} />
+      <FontAwesomeIcon
+        icon={faRightFromBracket}
+        className="text-white text-2xl mr-2"
+        style={{ color: "white" }}
+      />
     </button>
   );
 
@@ -116,10 +136,14 @@ const DashHeader = () => {
     <>
       <p className={errClass}>{error?.data?.message}</p>
 
-      <header className="dash-header">
-        <div className={`dash-header__container ${dashClass}`}>
+      <header className="dash-header bg-gray-800">
+        <div
+          className={`dash-header__container ${dashClass} container mx-auto py-4 px-6 flex items-center justify-between`}
+        >
           <Link to="/dash">
-            <h1 className="dash-header__title">Hackathon Speedrunner</h1>
+            <h1 className="dash-header__title text-white text-2xl">
+              Hackathon Speedrunner
+            </h1>
           </Link>
           <nav className="dash-header__nav">{buttonContent}</nav>
         </div>
@@ -129,4 +153,5 @@ const DashHeader = () => {
 
   return content;
 };
+
 export default DashHeader;

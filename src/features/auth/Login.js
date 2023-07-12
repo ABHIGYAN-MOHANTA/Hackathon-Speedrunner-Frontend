@@ -1,6 +1,5 @@
 import { useRef, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-
 import { useDispatch } from "react-redux";
 import { setCredentials } from "./authSlice";
 import { useLoginMutation } from "./authApiSlice";
@@ -59,19 +58,25 @@ const Login = () => {
   if (isLoading) return <PulseLoader color={"#FFF"} />;
 
   const content = (
-    <section className="public">
+    <section className="public min-h-screen flex flex-col items-center justify-center">
       <header>
-        <h1>User Login</h1>
+        <h1 className="text-3xl font-bold">User Login</h1>
       </header>
-      <main className="login">
-        <p ref={errRef} className={errClass} aria-live="assertive">
+      <main className="login mt-8">
+        <p
+          ref={errRef}
+          className={`${errClass} text-red-600`}
+          aria-live="assertive"
+        >
           {errMsg}
         </p>
 
-        <form className="form" onSubmit={handleSubmit}>
-          <label htmlFor="username">Username:</label>
+        <form className="form mt-4" onSubmit={handleSubmit}>
+          <label htmlFor="username" className="text-lg">
+            Username:
+          </label>
           <input
-            className="form__input"
+            className="form__input mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             type="text"
             id="username"
             ref={userRef}
@@ -81,21 +86,28 @@ const Login = () => {
             required
           />
 
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password" className="text-lg mt-4">
+            Password:
+          </label>
           <input
-            className="form__input"
+            className="form__input mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             type="password"
             id="password"
             onChange={handlePwdInput}
             value={password}
             required
           />
-          <button className="form__submit-button">Sign In</button>
+          <button className="form__submit-button mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            Sign In
+          </button>
 
-          <label htmlFor="persist" className="form__persist">
+          <label
+            htmlFor="persist"
+            className="form__persist flex items-center mt-4 text-sm"
+          >
             <input
               type="checkbox"
-              className="form__checkbox"
+              className="form__checkbox mr-2"
               id="persist"
               onChange={handleToggle}
               checked={persist}
@@ -104,12 +116,15 @@ const Login = () => {
           </label>
         </form>
       </main>
-      <footer>
-        <Link to="/">Back to Home</Link>
+      <footer className="mt-8">
+        <Link to="/" className="text-blue-600 hover:underline">
+          Back to Home
+        </Link>
       </footer>
     </section>
   );
 
   return content;
 };
+
 export default Login;

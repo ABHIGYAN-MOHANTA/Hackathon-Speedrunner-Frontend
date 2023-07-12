@@ -8,26 +8,32 @@ const Mlh = ({ mlhId }) => {
     }),
   });
 
-  <div className="3.54"></div>;
-
   if (mlh) {
     return (
-      <tr className="table__row user">
-        <td className={`table__cell`}>{mlh.name}</td>
-        <td className={`table__cell`}>{mlh.eventdate}</td>
-        <td className={`table__cell`}>{mlh.eventlocation}</td>
-        <td className={`table__cell`}>{mlh.eventnote}</td>
-        <td className={`table__cell`}>
-          <img
-            src={mlh.imageurl}
-            alt="event background"
-            style={{ width: "200px" }}
-          />
-        </td>
-        <td className={`table__cell`}>
-          <img src={mlh.logo} alt="event logo" style={{ width: "200px" }} />
-        </td>
-      </tr>
+      <div className="max-w-md bg-white shadow-md rounded-lg overflow-hidden mb-4">
+        <div className="p-4">
+          <div className="relative">
+            <div className="absolute top-3 left-3 -mt-3 -ml-3">
+              <img
+                src={mlh.logo}
+                alt="event logo"
+                className="w-8 h-8 object-cover rounded-full"
+              />
+            </div>
+            <h2 className="text-2xl font-bold mb-2 ml-12">{mlh.name}</h2>
+            <p className="text-gray-600">DATE: {mlh.eventdate}</p>
+            <p className="text-gray-600">Location: {mlh.eventlocation}</p>
+            <p className="text-gray-600">Note: {mlh.eventnote}</p>
+            <div className="flex justify-center items-center mt-4">
+              <img
+                src={mlh.imageurl}
+                alt="event background"
+                className="w-100 h-100 object-cover rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     );
   } else return null;
 };
