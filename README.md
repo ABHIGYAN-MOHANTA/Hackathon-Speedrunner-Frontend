@@ -1,71 +1,59 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # Hackathon-Speedrunner-Frontend
+
+## Getting Started
+
+To get started with Hackathon-Speedrunner-Frontend, please follow these steps:
+
+1. Clone the repository by running the following command in your terminal:
+git clone https://github.com/ABHIGYAN-MOHANTA/Hackathon-Speedrunner-Frontend.git
+
+
+2. Install the project dependencies by running the following command in the project directory:
+npm install
+
+
+3. Start the development server by running the following command:
+npm start
+
+
+## Project Overview
+
+Hackathon-Speedrunner-Frontend is a one-stop solution for tracking hackathons and team building. It serves as the frontend component of the Hackathon Speedrunner Backend project. The project is built using React, Redux Toolkit, RTK Query, and Tailwind CSS. It provides users with information about tech events and hackathons happening around them, as well as a platform to chat and form teams. Users can even post about events that are not currently tracked by our backend.
+
+## Technologies Used
+
+The Hackathon-Speedrunner-Frontend project utilizes the following technologies:
+
+- React: A popular JavaScript library for building user interfaces.
+- Redux Toolkit: A state management library for React applications.
+- RTK Query: A powerful data fetching and caching library for Redux applications.
+- Tailwind CSS: A highly customizable CSS framework for building modern web interfaces.
+
+## Usage and Features
+
+Hackathon-Speedrunner-Frontend offers the following features:
+
+- Tracking Hackathons: The project provides users with information about tech events and hackathons happening around the world.
+- Team Building: Users can use the platform to chat and form teams for hackathons.
+- Event Posting: Users can post about events that are not currently tracked by the backend.
+
+For a detailed demonstration of how the project works, please check out our [YouTube video](https://www.youtube.com/watch?v=Q0Yls0L_T8g&t=28s).
+
+## Contributing
+
+We welcome contributions from the open-source community to improve the Hackathon-Speedrunner-Frontend project. If you'd like to contribute, please follow these steps:
+
+1. Fork the repository on GitHub.
+2. Create a new branch with a descriptive name for your feature or bug fix.
+3. Make your changes and commit them with clear commit messages.
+4. Push your changes to your forked repository.
+5. Submit a pull request, explaining the changes you've made and why they should be merged.
+
+Please ensure that you adhere to our code style guidelines and write appropriate tests for your changes.
+
+## Support
+
+If you encounter any issues or have any questions regarding the Hackathon-Speedrunner-Frontend project, please feel free to [open an issue](https://github.com/ABHIGYAN-MOHANTA/Hackathon-Speedrunner-Frontend/issues) on GitHub. I'll be happy to assist you!
+
+Happy hacking!
+
